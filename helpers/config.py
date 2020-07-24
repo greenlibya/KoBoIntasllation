@@ -29,8 +29,7 @@ class Config:
     DEFAULT_PROXY_PORT = "8080"
     DEFAULT_NGINX_PORT = "80"
     DEFAULT_NGINX_HTTPS_PORT = "443"
-    KOBO_DOCKER_BRANCH = '300-backups-venv-failure'
-    KOBO_INSTALL_VERSION = '3.2.0'
+
 
     # Maybe overkill. Use this class as a singleton to get the same configuration
     # for each instantiation.
@@ -1460,7 +1459,7 @@ class Config:
 
             CLI.colored_print("Auto-install HTTPS certificates with Let's Encrypt?", CLI.COLOR_SUCCESS)
             CLI.colored_print("\t1) Yes")
-            CLI.colored_print("\t2) No - Use my own reserve-proxy/load-balancer")
+            CLI.colored_print("\t2) No - Use my own reverse-proxy/load-balancer")
             self.__config["use_letsencrypt"] = CLI.get_response([Config.TRUE, Config.FALSE],
                                                                 self.__config.get("use_letsencrypt", Config.TRUE))
             self.__config["proxy"] = Config.TRUE
